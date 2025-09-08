@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class Selection : MonoBehaviour
+public class Seleccion : MonoBehaviour
 {
     public Material InactiveMaterial;
     public Material GazedMaterial;
@@ -12,12 +12,14 @@ public class Selection : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InactiveMaterial = this.gameObject.GetComponent<Material>();
+        //InactiveMaterial = this.gameObject.GetComponent<Material>();
+        MyRender = this.gameObject.GetComponent<Renderer>();
         gazedAt = false;
+        SetMaterial(gazedAt);
     }
 
     //Metodo para Marcar Seleccion
-    public void OnPointerEnder()
+    public void OnPointerEnter()
     {
         gazedAt=true;
         SetMaterial(gazedAt);
